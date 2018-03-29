@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo jquery</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="..\css\bootstrap.css">
+	<script type="text/javascript" src="dist/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		var i=1;
+		$(function () {
+
+		
+		$('#add').on('click',function(){
+
+			$('#form').append("<div id='divi"+i+"'><br><br><div class='form-group'><label for='pid'>PID</label><input type='text' class='form-control' name='pid[]'></div><div class='form-group'><label for='pname'> &nbspProduct&nbsp</label>	<input type='text' class='form-control' name='pname[]'></div> <div class='form-group'><label for='cost'> Cost</label>	<input type='text' class='form-control' name='cost[]' >	</div> <div class='form-group'>	<label for='tax'> Tax</label>	<input type='text' class='form-control' name='tax[]'><div class='form-group'><label for='stock'>&nbspStock&nbsp</label><input type='text' class='form-control' name='stock[]'></div></div></div>"
+
+				);
+			i++;
+			});
+			
+			$('#rem').on('click',function(){
+				
+				i=i-1;
+				x="#divi"+i;
+				$(x).remove();
+		
+		});
+		})
+	
+
+		
+
+	</script>
+
+	<style type="text/css">
+		
+		.flt{
+			float: right;
+		}
+
+	</style>
+</head>
+<body>
+		<div class="container-fluid">
+		<div class="row">
+			<div class="navbar navbar-inverse">
+				<div class="navbar-header">
+					<span class="navbar-brand">Menu</span>
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</button>
+				</div>
+				
+				<div class="collapse navbar-collapse" id="menu">
+					<ul class="nav navbar-nav">
+					<li class="active"><a href="http://localhost/GSTproject/home.php">Home</a></li>
+					<li><a href="#">About</a></li>
+					</ul>
+					<span class="navbar-text ">HELLO <a class="navbar-link active">Username</a></span>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+	<div class="container-fluid" style="margin-left: 50px;">
+		<div class="row">
+		<center><h1 style="color: blue;">Add Product</h1></center><br>
+		<form class="form-inline" action="insert.php" method="get">	
+			<div id="form">
+				<div id="divi">
+			 <div class="form-group">
+				<label for="pid">PID</label>
+				<input type="text" class="form-control" name="pid[]">
+			</div>
+ 			<div class="form-group">
+				<label for="pname">Product</label>
+				<input type="text" class="form-control" name="pname[]">
+			</div>
+		 	 <div class="form-group">
+				<label for="cost">Cost</label>
+				<input type="text" class="form-control" name="cost[]">
+			</div>
+			 <div class="form-group">
+				<label for="tax">Tax</label>
+				<input type="text" class="form-control" name="tax[]">
+			</div>
+			 <div class="form-group">
+				<label for="stock">Stock</label>
+				<input type="text" class="form-control" name="stock[]">
+			</div>
+
+		</div>
+		</div>
+			<br>
+		 	<br>
+		 	<div class="col-md-offset-4">
+			<button type="submit" class="btn btn-success btn-lg">Submit</button>
+			<button type="reset" class="btn btn-default">Reset</button>
+ 		 	</div>
+			</form>
+			 	<button class="btn btn-primary" id="add">ADD</button>		
+					<button class='btn btn-danger rem' id="rem">X</button>
+
+	</div>
+</div>
+</body>
+</html>
